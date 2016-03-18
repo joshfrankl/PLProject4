@@ -1,5 +1,3 @@
-# Null numerical fields - 0.0 or '' or None?
-
 s_emp = (('ID', 'LAST_NAME', 'FIRST_NAME', 'USERID', 'START_DATE', 'COMMENTS', 'TITLE', 'SALARY', 'COMMISSION', 'DEPT_ID', 'MANAGER_ID'),
          (1, 'Martin', 'Carmen', 'martincu', '1990-03-03 00:00:00', '', 'President', 4500.0, '', 50, ''),
          (10, 'Jackson', 'Marta', 'jacksomt', '1991-02-27 00:00:00', '', 'Warehouse Manager', 1507.0, '', 45, 2),

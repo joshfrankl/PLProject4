@@ -67,11 +67,19 @@ var list = function() {
             }
         }
         f.iterate = function() {
-            var current = l.head;
+            var current = l.head; // Keep track of last element returned
+            var firstElement = true; // Prevents skipping over first element
 
             return {
                 next: function() {
-
+                    if (firstElement == true) { // Return the first element
+                        firstElement = false;
+                        return current;
+                    }
+                    else if (current.next.data != null) { // There is more to iterate over
+                        current = current.next; // Move pointer to the next element
+                        return current; // Return the next element
+                    }
                 }
             }
         }
@@ -119,3 +127,15 @@ for(var i = 1; i < l4.length(); i++) {
     h = h.next;
     document.writeln(", " + h.data);
 }
+
+// Create a new list l5 (x, y, z) in order to test iterator
+var l5 = new list();
+l5.cons('x')
+l5.cons('y')
+l5.cons('z')
+document.writeln("<BR>");
+var it = l5.iterate();
+document.writeln("<BR>l5 iterate 1: " + it.next().data);
+document.writeln("<BR>l5 iterate 2: " + it.next().data);
+document.writeln("<BR>l5 iterate 3: " + it.next().data);
+document.writeln("<BR>l5 iterate 4: " + it.next().data);
