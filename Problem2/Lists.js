@@ -141,4 +141,4 @@ var it = l5.iterate();
 document.writeln("<BR>l5 iterate 1: " + it.next());
 document.writeln("<BR>l5 iterate 2: " + it.next());
 document.writeln("<BR>l5 iterate 3: " + it.next());
-document.writeln("<BR>l5 iterate 4 (end of list): " + it.next());
+document.writeln("<BR>l5 iterate 4 (end of list - should be null): " + it.next());
