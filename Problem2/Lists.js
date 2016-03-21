@@ -74,11 +74,14 @@ var list = function() {
                 next: function() {
                     if (firstElement == true) { // Return the first element
                         firstElement = false;
-                        return current;
+                        return current.data;
                     }
                     else if (current.next.data != null) { // There is more to iterate over
                         current = current.next; // Move pointer to the next element
-                        return current; // Return the next element
+                        return current.data; // Return the next element
+                    }
+                    else { // Return null if at the end of the list
+                        return null;
                     }
                 }
             }
@@ -135,7 +138,7 @@ l5.cons('y')
 l5.cons('z')
 document.writeln("<BR>");
 var it = l5.iterate();
-document.writeln("<BR>l5 iterate 1: " + it.next().data);
-document.writeln("<BR>l5 iterate 2: " + it.next().data);
-document.writeln("<BR>l5 iterate 3: " + it.next().data);
-document.writeln("<BR>l5 iterate 4: " + it.next().data);
+document.writeln("<BR>l5 iterate 1: " + it.next());
+document.writeln("<BR>l5 iterate 2: " + it.next());
+document.writeln("<BR>l5 iterate 3: " + it.next());
+document.writeln("<BR>l5 iterate 4 (end of list): " + it.next());
