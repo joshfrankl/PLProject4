@@ -92,53 +92,17 @@ var list = function() {
     return list;
 };
 
+
+// Create a new list l1 (x, y, z) in order to test iterator
 var l1 = new list();
-l1.concat('a')
-l1.cons('b')
-document.writeln("l1: " + l1.first() + "<BR>");
-document.writeln("l1: " + l1.length() + "<BR>");
-
-var l2 = new list();
-l2.cons('c')
-document.writeln("<BR>l2: " + l2.car() + "<BR>");
-document.writeln("l2: " + l2.length() + "<BR>");
-
-var l3 = new list();
-var l4 = new list();
-l3.cons('x')
-l3.cons('y')
-l3.cons('z')
-l4.cons(l3);
-l4.cons(l3.car());
-
-document.writeln("<BR>l3: " + l3.car());
-while(l3.length() > 0) {
-    document.writeln(", " + l3.cdr().car());
-}
-
-var h = l4.run('head');
-document.writeln("<BR>l4: " + h.data);
-for(var i = 1; i < l4.length(); i++) {
-    h = h.next;
-    document.writeln(", " + h.data);
-}
-
-l4.map(function(x){return x+x;});
-var h = l4.run('head');
-document.writeln("<BR>l4 map: " + h.data);
-for(var i = 1; i < l4.length(); i++) {
-    h = h.next;
-    document.writeln(", " + h.data);
-}
-
-// Create a new list l5 (x, y, z) in order to test iterator
-var l5 = new list();
-l5.cons('x')
-l5.cons('y')
-l5.cons('z')
-document.writeln("<BR>");
-var it = l5.iterate();
-document.writeln("<BR>l5 iterate 1: " + it.next());
-document.writeln("<BR>l5 iterate 2: " + it.next());
-document.writeln("<BR>l5 iterate 3: " + it.next());
-document.writeln("<BR>l5 iterate 4 (end of list - should be null): " + it.next());
+l1.cons('x');
+l1.cons('y');
+l1.cons('z');
+var it = l1.iterate();
+document.writeln("<BR>l1 iterate 1: " + it.next());
+document.writeln("<BR>l1 iterate 2: " + it.next());
+document.writeln("<BR>l1 iterate 3: " + it.next());
+document.writeln("<BR>l1 iterate 4 (end of list - should be null): " + it.next());
+l1.cons('a');
+document.writeln("<BR>l1 iterate 5 (new node added): " + it.next());
+document.writeln("<BR>l1 iterate 6 (end of list - should be null): " + it.next());
